@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dapur - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fungsi untuk menampilkan informasi
+        function showInfo(id, data) {
+            const infoElement = document.getElementById(id);
+            infoElement.innerHTML = `<p>${data}</p>`;
+        }
+
+        // Fungsi untuk membersihkan semua informasi
+        function clearInfo() {
+            const infoElements = document.querySelectorAll('.info-box');
+            infoElements.forEach(element => {
+                element.innerHTML = "";
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Dapur Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner.html">Owner</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="penjualan.html">Penjualan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Dapur Navigation</h2>
+        <ul class="navigation-list">
+            <li>
+                <button onclick="showInfo('info-bahan', 'Bahan Baku: 10kg cokelat, 6 kg matcha, 4 Tandan Pisang tersedia')">Bahan Baku</button>
+                <div id="info-bahan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-stok', 'Stok Bahan Baku: 200kg gula,70 Liter minyak kelapa, 50 Liter susu, 10kg garam tersedia')">Stok Bahan Baku</button>
+                <div id="info-stok" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-resep', 'Resep dan Standar: Resep spesial untuk cokelat premium')">Resep dan Standar</button>
+                <div id="info-resep" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-pesanan', 'Daftar Pesanan: 4 pesanan untuk hari ini')">Daftar Pesanan</button>
+                <div id="info-pesanan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-kebersihan', 'Kebersihan dan Keamanan: Dapur dalam kondisi bersih')">Kebersihan dan Keamanan</button>
+                <div id="info-kebersihan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-kesehatan', 'Peraturan Kesehatan: Terapkan protokol kesehatan')">Peraturan Kesehatan dan Keselamatan</button>
+                <div id="info-kesehatan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-kebutuhan', 'Catatan Kebutuhan: Tambah stok bahan baku Bulan depan')">Catatan Kebutuhan</button>
+                <div id="info-kebutuhan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-peralatan', 'Pemeliharaan Peralatan: Semua alat dapur telah diperiksa')">Pemeliharaan Peralatan</button>
+                <div id="info-peralatan" class="info-box"></div>
+            </li>
+        </ul>
+
+        <!-- Tombol Bersihkan -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="clearInfo()" style="padding: 10px 20px; background-color: #6b4226; color: white; border: none; border-radius: 5px; cursor: pointer;">Bersihkan Semua</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dapur - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const currentRole = sessionStorage.getItem('role');
+        if (!currentRole || (currentRole !== "Owner" && currentRole !== "Dapur")) {
+            alert("Anda tidak memiliki akses ke halaman ini.");
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Dapur Dashboard</h1>
+    </header>
+    <main>
+        <p>Selamat datang di halaman Dapur.</p>
+    </main>
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    // Cek apakah role tersimpan
+    console.log("Role saat ini:", sessionStorage.getItem('role'));
+</script>

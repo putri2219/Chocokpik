@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function login() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const role = document.getElementById('role').value;
+
+            // Validasi input
+            if (!username || !password || !role) {
+                alert("Semua kolom harus diisi.");
+                return;
+            }
+
+            // Cek login berdasarkan role
+            if (role === "Owner" && username === "owner" && password === "1234") {
+                sessionStorage.setItem('role', 'Owner');
+                window.location.href = "owner.html";
+            } else if (role === "Marketing" && username === "marketing" && password === "1234") {
+                sessionStorage.setItem('role', 'Marketing');
+                window.location.href = "marketing.html";
+            } else if (role === "Penjualan" && username === "penjualan" && password === "1234") {
+                sessionStorage.setItem('role', 'Penjualan');
+                window.location.href = "penjualan.html";
+            } else if (role === "Dapur" && username === "dapur" && password === "1234") {
+                sessionStorage.setItem('role', 'Dapur');
+                window.location.href = "dapur.html";
+            } else {
+                alert("Username, password, atau role salah. Silakan coba lagi.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Login ke Dashboard Chocokpik</h1>
+    </header>
+    <main>
+        <form onsubmit="event.preventDefault(); login();">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Masukkan username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Masukkan password" required>
+            <br>
+            <label for="role">Role:</label>
+            <select id="role" required>
+                <option value="">-- Pilih Role --</option>
+                <option value="Owner">Owner</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Penjualan">Penjualan</option>
+                <option value="Dapur">Dapur</option>
+            </select>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const role = document.getElementById('role').value;
+
+        // Login validasi
+        if (role === "Owner" && username === "owner" && password === "1234") {
+            sessionStorage.setItem('role', 'Owner');
+            window.location.href = "owner.html";
+        } else if (role === "Marketing" && username === "marketing" && password === "1234") {
+            sessionStorage.setItem('role', 'Marketing');
+            window.location.href = "marketing.html";
+        } else if (role === "Penjualan" && username === "penjualan" && password === "1234") {
+            sessionStorage.setItem('role', 'Penjualan');
+            window.location.href = "penjualan.html";
+        } else if (role === "Dapur" && username === "dapur" && password === "1234") {
+            sessionStorage.setItem('role', 'Dapur');
+            window.location.href = "dapur.html";
+        } else {
+            alert("Username, password, atau role salah. Coba lagi.");
+        }
+    }
+</script>
+
+<script>
+    // Cek apakah role tersimpan
+    console.log("Role saat ini:", sessionStorage.getItem('role'));
+</script>

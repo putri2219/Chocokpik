@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fungsi untuk menampilkan informasi langsung di bawah tombol navigasi
+        function showInfo(id, data) {
+            const infoElement = document.getElementById(id);
+            infoElement.innerHTML = `<p>${data}</p>`;
+        }
+
+        // Fungsi untuk membersihkan semua informasi
+        function clearInfo() {
+            const infoElements = document.querySelectorAll('.info-box');
+            infoElements.forEach(element => {
+                element.innerHTML = "";
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Owner Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="penjualan.html">Penjualan</a></li>
+                <li><a href="dapur.html">Dapur</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Owner Navigation</h2>
+        <ul class="navigation-list">
+            <li>
+                <button onclick="showInfo('info-stok-produk', 'Stok Produk: 35')">Stok Produk</button>
+                <div id="info-stok-produk" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-stok-bahan', 'Stok Pisang: 4 Tandan, Stok Cokelat:10 kg, Stok Matcha: 6 kg')">Stok Bahan Baku</button>
+                <div id="info-stok-bahan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-total-penjualan', 'Total Penjualan: 26')">Total Penjualan</button>
+                <div id="info-total-penjualan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-total-pemesanan', 'Choco Matcha: 9, Chocolate: 15, Chocolate White : 6, Total Pemesanan: 30')">Total Pemesanan</button>
+                <div id="info-total-pemesanan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-total-dibatalkan', 'Total Barang yang Dibatalkan: 4')">Total Barang yang Dibatalkan</button>
+                <div id="info-total-dibatalkan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-total-pendapatan', 'Total Pendapatan: Rp390,000')">Total Pendapatan</button>
+                <div id="info-total-pendapatan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-strategi-promosi', 'Strategi Promosi: Diskon 10% untuk pembelian > 3')">Strategi Promosi</button>
+                <div id="info-strategi-promosi" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-jenis-produk', 'Jenis Produk Ready: Chocolate, Choco Matcha, White Chocolate')">Jenis Produk Ready</button>
+                <div id="info-jenis-produk" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-performa-bisnis', 'Performa Bisnis: Meningkat 20% dari bulan lalu')">Performa Bisnis</button>
+                <div id="info-performa-bisnis" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-navigasi-marketing', 'Navigasi Marketing: Strategi Pemasaran, Riset Pasar, Promosi Aktif, Target Pasar, Pengelolaan Kampanye, Interaksi dengan Pelanggan, Analisis Penjualan, Evaluasi Tim Marketing')">Navigasi Marketing</button>
+                <div id="info-navigasi-marketing" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-navigasi-penjualan', 'Navigasi Penjualan: Laporan Penjualan, Pesanan Pelanggan, Rekap Transaksi, Strategi Follow-Up, Dinamika Pasar, Performa Tim Penjualan')">Navigasi Penjualan</button>
+                <div id="info-navigasi-penjualan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-navigasi-dapur', 'Navigasi Dapur: Bahan Baku, Stok Bahan Baku, Resep dan Standar,Daftar Pesanan, Kebersihan dan Keamanan, Peraturan Kesehatan dan Keselamatan, Catatan Kebutuhan, Pemeliharaan Peralatan')">Navigasi Dapur</button>
+                <div id="info-navigasi-dapur" class="info-box"></div>
+            </li>
+        </ul>
+
+        <!-- Tombol Pembersih -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="clearInfo()" style="padding: 10px 20px; background-color: #6b4226; color: white; border: none; border-radius: 5px; cursor: pointer;">Bersihkan Semua</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const currentRole = sessionStorage.getItem('role');
+        if (!currentRole || currentRole !== "Owner") {
+            alert("Anda tidak memiliki akses ke halaman ini.");
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Owner Dashboard</h1>
+    </header>
+    <main>
+        <p>Selamat datang di halaman Owner. Anda memiliki akses penuh ke semua fitur.</p>
+        <ul>
+            <li><a href="marketing.html">Halaman Marketing</a></li>
+            <li><a href="penjualan.html">Halaman Penjualan</a></li>
+            <li><a href="dapur.html">Halaman Dapur</a></li>
+        </ul>
+    </main>
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    // Cek apakah role tersimpan
+    console.log("Role saat ini:", sessionStorage.getItem('role'));
+</script>

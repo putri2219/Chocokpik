@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fungsi untuk menampilkan informasi
+        function showInfo(id, data) {
+            const infoElement = document.getElementById(id);
+            infoElement.innerHTML = `<p>${data}</p>`;
+        }
+
+        // Fungsi untuk membersihkan semua informasi
+        function clearInfo() {
+            const infoElements = document.querySelectorAll('.info-box');
+            infoElements.forEach(element => {
+                element.innerHTML = "";
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Marketing Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner.html">Owner</a></li>
+                <li><a href="penjualan.html">Penjualan</a></li>
+                <li><a href="dapur.html">Dapur</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Marketing Navigation</h2>
+        <ul class="navigation-list">
+            <li>
+                <button onclick="showInfo('info-strategi', 'Strategi Pemasaran: Tingkatkan promosi melalui media sosial')">Strategi Pemasaran</button>
+                <div id="info-strategi" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-riset', 'Riset Pasar: Analisis kebutuhan konsumen')">Riset Pasar</button>
+                <div id="info-riset" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-promosi', 'Promosi Aktif: Diskon 20% untuk pembelian pertama')">Promosi Aktif</button>
+                <div id="info-promosi" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-target', 'Target Pasar: Konsumen usia 15-35 tahun')">Target Pasar</button>
+                <div id="info-target" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-kampanye', 'Pengelolaan Kampanye: Kampanye Hari Valentine')">Pengelolaan Kampanye</button>
+                <div id="info-kampanye" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-interaksi', 'Interaksi Dengan Pelanggan: Respon email dalam 24 jam')">Interaksi Dengan Pelanggan</button>
+                <div id="info-interaksi" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-analisis', 'Analisis Penjualan: Penjualan meningkat 15% bulan ini')">Analisis Penjualan</button>
+                <div id="info-analisis" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-evaluasi', 'Evaluasi Tim Marketing: Hasil evaluasi menunjukkan peningkatan kinerja')">Evaluasi Tim Marketing</button>
+                <div id="info-evaluasi" class="info-box"></div>
+            </li>
+        </ul>
+
+        <!-- Tombol Bersihkan -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="clearInfo()" style="padding: 10px 20px; background-color: #6b4226; color: white; border: none; border-radius: 5px; cursor: pointer;">Bersihkan Semua</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const currentRole = sessionStorage.getItem('role');
+        if (!currentRole || (currentRole !== "Owner" && currentRole !== "Marketing")) {
+            alert("Anda tidak memiliki akses ke halaman ini.");
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Marketing Dashboard</h1>
+    </header>
+    <main>
+        <p>Selamat datang di halaman Marketing.</p>
+    </main>
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    // Cek apakah role tersimpan
+    console.log("Role saat ini:", sessionStorage.getItem('role'));
+</script>

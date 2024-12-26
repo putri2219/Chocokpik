@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fungsi untuk menampilkan informasi
+        function showInfo(id, data) {
+            const infoElement = document.getElementById(id);
+            infoElement.innerHTML = `<p>${data}</p>`;
+        }
+
+        // Fungsi untuk membersihkan semua informasi
+        function clearInfo() {
+            const infoElements = document.querySelectorAll('.info-box');
+            infoElements.forEach(element => {
+                element.innerHTML = "";
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Penjualan Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner.html">Owner</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="dapur.html">Dapur</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Penjualan Navigation</h2>
+        <ul class="navigation-list">
+            <li>
+                <button onclick="showInfo('info-laporan', 'Laporan Penjualan: 10 transaksi minggu ini')">Laporan Penjualan</button>
+                <div id="info-laporan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-target', 'Target Penjualan: 50 transaksi per bulan')">Target Penjualan</button>
+                <div id="info-target" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-pesanan', 'Pesanan Pelanggan: 20 pesanan aktif')">Pesanan Pelanggan</button>
+                <div id="info-pesanan" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-rekap', 'Rekap Transaksi: Total Rp390 ribu bulan ini')">Rekap Transaksi</button>
+                <div id="info-rekap" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-followup', 'Strategi Follow-Up: Hubungi pelanggan yang belum menyelesaikan pembayaran')">Strategi Follow-Up</button>
+                <div id="info-followup" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-dinamika', 'Dinamika Pasar: Kompetitor meluncurkan produk baru')">Dinamika Pasar</button>
+                <div id="info-dinamika" class="info-box"></div>
+            </li>
+            <li>
+                <button onclick="showInfo('info-performa', 'Performa Tim Penjualan: Peningkatan efisiensi 10% dibanding bulan lalu')">Performa Tim Penjualan</button>
+                <div id="info-performa" class="info-box"></div>
+            </li>
+        </ul>
+
+        <!-- Tombol Bersihkan -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="clearInfo()" style="padding: 10px 20px; background-color: #6b4226; color: white; border: none; border-radius: 5px; cursor: pointer;">Bersihkan Semua</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan - Chocokpik</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const currentRole = sessionStorage.getItem('role');
+        if (!currentRole || (currentRole !== "Owner" && currentRole !== "Penjualan")) {
+            alert("Anda tidak memiliki akses ke halaman ini.");
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Penjualan Dashboard</h1>
+    </header>
+    <main>
+        <p>Selamat datang di halaman Penjualan.</p>
+    </main>
+    <footer>
+        <p>© 2024 Chocokpik. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    // Cek apakah role tersimpan
+    console.log("Role saat ini:", sessionStorage.getItem('role'));
+</script>
